@@ -4,7 +4,7 @@ ACF_defineGunClass("HW", {
 	name = "Howitzer",
 	desc = "Howitzers are limited to rather mediocre muzzle velocities, but can fire extremely heavy projectiles with large useful payload capacities.",
 	muzzleflash = "120mm_muzzleflash_noscale",
-	rofmod = 1.8,
+	rofmod = 1.3,
 	sound = "weapons/ACF_Gun/howitzer_new2.wav",
 	soundDistance = "Howitzer.Fire",
 	soundNormal = " "
@@ -81,7 +81,6 @@ ACF_defineGun("203mmHW", {
 	}
 } )
 
---[[
 ACF_defineGun("240mmHW", {
 	name = "240mm Howitzer",
 	desc = "A 9.4-inch deck gun, found on heavy siege artillery and cruisers.",
@@ -98,8 +97,8 @@ ACF_defineGun("240mmHW", {
 
 ACF_defineGun("290mmHW", {
 	name = "290mm Howitzer",
-	desc = " Mother of all howitzers. This 12in beast can be found on battleships. It WILL fuck your day up... when it reloads.",
-	model = "models/howitzer/howitzer_406mm.mdl",
+	desc = "Mother of all howitzers. This 12-inch beast can be found on battleships. It WILL fuck your day up... when it reloads.",
+	model = "models/howitzer/howitzer_290mm.mdl",
 	gunclass = "HW",
 	caliber = 29,
 	weight = 24960,
@@ -109,4 +108,17 @@ ACF_defineGun("290mmHW", {
 		propweight = 57.0
 	}
 } )
-]]--	
+
+ACF_defineGun("406mmHW", {
+	name = "406mm Howitzer",
+	desc = "A 16-inch weapon of mass destruction. Basically impossible to mount without hacking.",
+	model = "models/howitzer/howitzer_406mm.mdl",
+	gunclass = "HW",
+	caliber = 40.6,
+	weight = 42860,
+	year = 1900,
+	round = {
+		maxlength = 602,
+		propweight = 160.0
+	}
+} )

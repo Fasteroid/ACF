@@ -397,5 +397,16 @@ local Ammo4x8x8 = {}
 	Ammo4x8x8.weight = 960
 	Ammo4x8x8.volume = 366397
 AmmoTable["Ammo4x8x8"] = Ammo4x8x8
+
+local Ammo8x8x8 = {}
+	Ammo8x8x8.id = "Ammo8x8x8"
+	Ammo8x8x8.ent = "acf_ammo"
+	Ammo8x8x8.type = "Ammo"
+	Ammo8x8x8.name = "Modular Ammo Crate"
+	Ammo8x8x8.desc = "FAT Ammo Crate 8x8x8 Size\n"
+	Ammo8x8x8.model = "models/hunter/blocks/cube2x2x2.mdl"
+	Ammo8x8x8.weight = 1920
+	Ammo8x8x8.volume = 732794
+AmmoTable["Ammo8x8x8"] = Ammo8x8x8
 	
 list.Set( "ACFEnts", "Ammo", AmmoTable )	--end ammo containers listing

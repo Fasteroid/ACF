@@ -501,7 +501,9 @@ function ENT:Think()
 			rofbonus = rofbonus + (cap/totalcap)*mul 
 		end
 
-		self.CrateBonus = rofbonus or 1
+		-- self.CrateBonus = rofbonus or 1
+		self.CrateBonus = math.max(rofbonus or 1, 0)
+
 		self.Ammo = Ammo
 		self:UpdateOverlayText()
 		
@@ -721,8 +723,8 @@ function ENT:LoadAmmo( AddTime, Reload )
 		end
 		
 		local Adj = not self.BulletData.LengthAdj and 1 or self.BulletData.LengthAdj --FL firerate bonus adjustment
-		
 		self.ReloadTime = ( ( math.max(self.BulletData.RoundVolume,self.MinLengthBonus*Adj) / 500 ) ^ 0.60 ) * self.RoFmod * self.PGRoFmod * cb
+		self.ReloadTime = math.Min(self.ReloadTime, 15)
 		Wire_TriggerOutput(self, "Loaded", self.BulletData.Type)
 		
 		self.RateOfFire = (60/self.ReloadTime)

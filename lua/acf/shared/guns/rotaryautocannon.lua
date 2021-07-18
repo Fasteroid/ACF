@@ -97,3 +97,19 @@ ACF_defineGun("30mmHRAC", {
 	}
 } )
 
+ACF_defineGun("100mmHRAC", {
+	name = "BigRac",
+	desc = "A gargantuan homemade leadspitting tard cannon. Chews through ammo like something that chews through ammo.",
+	model = "models/tankgun/tankgun_100mm.mdl",
+	gunclass = "RAC",
+	caliber = 10.0,
+	weight = 4850,
+	year = 1985,
+	magsize = 1000,
+	magreload = 6,
+	rofmod = 0.2,
+	round = {
+		maxlength = 93,
+		propweight = 9.350
+	}} )
+
