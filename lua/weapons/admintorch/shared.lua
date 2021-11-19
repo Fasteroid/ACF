@@ -77,7 +77,7 @@ function SWEP:Think()
 		local userid = self.Owner
 		local trace = {}
 		trace.start = userid:GetShootPos()
-		trace.endpos = userid:GetShootPos() + ( userid:GetAimVector() * 128	)
+		trace.endpos = userid:GetShootPos() + ( userid:GetAimVector() * 8192 )
 		trace.filter = userid --Not hitting the owner's feet when aiming down
 		local tr = util.TraceLine( trace )
 		local ent = tr.Entity
@@ -104,10 +104,9 @@ function SWEP:PrimaryAttack()
 
 	self.Weapon:SetNextPrimaryFire( CurTime() + 0.05 )
 	local userid = self.Owner
-	local userid = self.Owner
 	local trace = {}
 	trace.start = userid:GetShootPos()
-	trace.endpos = userid:GetShootPos() + ( userid:GetAimVector() * 64	)
+	trace.endpos = userid:GetShootPos() + ( userid:GetAimVector() * 8192 )
 	trace.filter = userid --Not hitting the owner's feet when aiming down
 	local tr = util.TraceLine( trace )
 		if ( tr.HitWorld ) then return end	
@@ -130,7 +129,7 @@ function SWEP:PrimaryAttack()
 			
 			local effect = EffectData()--then make some pretty effects :D ("Fixed that up a bit so it looks like it's actually emanating from the healing player, well mostly" Kaf)
 			local AngPos = userid:GetAttachment( 4 )
-			effect:SetOrigin( AngPos.Pos + userid:GetAimVector() * 10 )
+			effect:SetOrigin( AngPos.Pos + userid:GetAimVector() * 8192 )
 			effect:SetNormal( userid:GetAimVector() )
 			effect:SetEntity( self.Weapon )
 			util.Effect( "thruster_ring", effect, true, true ) --("The 2 booleans control clientside override, by default it doesn't display it since it'll lag a bit behind inputs in MP, same for sounds" Kaf)
@@ -139,8 +138,8 @@ function SWEP:PrimaryAttack()
 			if CPPI and not ent:CPPICanTool( self.Owner, "torch" ) then return false end
 			local Valid = ACF_Check ( ent )
 			if ( Valid and ent.ACF.Health < ent.ACF.MaxHealth ) then
-				ent.ACF.Health = math.min(ent.ACF.Health + (500/ent.ACF.MaxArmour),ent.ACF.MaxHealth)
-				ent.ACF.Armour = ent.ACF.MaxArmour * (0.9 + 0.1*ent.ACF.Health/ent.ACF.MaxHealth)
+				ent.ACF.Health = math.min(ent.ACF.Health + (2000/ent.ACF.MaxArmour),ent.ACF.MaxHealth)
+				ent.ACF.Armour = ent.ACF.MaxArmour * (0.5 + 0.5*ent.ACF.Health/ent.ACF.MaxHealth)
 				TeslaSpark(tr.HitPos , 1 )
 			end
 			self.Weapon:SetNWFloat( "HP", ent.ACF.Health )
@@ -164,7 +163,7 @@ self.Weapon:SetNextPrimaryFire( CurTime() + 0.05 )
 	local userid = self.Owner
 	local trace = {}
 	trace.start = userid:GetShootPos()
-	trace.endpos = userid:GetShootPos() + ( userid:GetAimVector() * 64	)
+	trace.endpos = userid:GetShootPos() + ( userid:GetAimVector() * 8192 )
 	trace.filter = userid
 	local tr = util.TraceLine( trace )
 		if ( tr.HitWorld ) then return end	
