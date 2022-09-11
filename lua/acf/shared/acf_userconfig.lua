@@ -18,5 +18,3 @@ AddCSLuaFile()
 
 
 ACF.EnableDefaultDP = true 	-- Enable the inbuilt damage protection system.
-ACF.GunInaccuracyScale = 0.5  -- Make guns 2x more accurate by halving the spread scale.
-ACF.GunInaccuracyBias = 1.2  -- Shots are more likely to be accurate with bias < 2
