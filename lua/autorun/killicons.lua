@@ -193,7 +193,7 @@ if CLIENT then
 			if ( !IsValid( attacker ) ) then return end
 			if ( !IsValid( victim ) ) then return end
 
-			GAMEMODE:AddDeathNotice( attacker:Name(), attacker:Team(), inflictor, victim:Name(), victim:Team() )
+			// GAMEMODE:AddDeathNotice( attacker:Name(), attacker:Team(), inflictor, victim:Name(), victim:Team() )
 
 		end
 		net.Receive( "ACF_PlayerKilledByPlayer", RecvPlayerKilledByPlayer )
@@ -202,7 +202,7 @@ if CLIENT then
 
 			local victim = net.ReadEntity()
 			if ( !IsValid( victim ) ) then return end
-			GAMEMODE:AddDeathNotice( nil, 0, "suicide", victim:Name(), victim:Team() )
+			// GAMEMODE:AddDeathNotice( nil, 0, "suicide", victim:Name(), victim:Team() )
 
 		end
 		net.Receive( "ACF_PlayerKilledSelf", RecvPlayerKilledSelf )
@@ -214,7 +214,7 @@ if CLIENT then
 			local inflictor	= net.ReadString()
 			local attacker	= "#" .. net.ReadString()
 
-			GAMEMODE:AddDeathNotice( attacker, -1, inflictor, victim:Name(), victim:Team() )
+			// GAMEMODE:AddDeathNotice( attacker, -1, inflictor, victim:Name(), victim:Team() )
 
 		end
 		net.Receive( "ACF_PlayerKilled", RecvPlayerKilled )
@@ -231,7 +231,7 @@ if CLIENT then
 			--
 			if ( !IsValid( attacker ) ) then return end
 
-			GAMEMODE:AddDeathNotice( attacker:Name(), attacker:Team(), inflictor, victim, -1 )
+			// GAMEMODE:AddDeathNotice( attacker:Name(), attacker:Team(), inflictor, victim, -1 )
 
 			local bIsLocalPlayer = ( IsValid(attacker) && attacker == LocalPlayer() )
 
@@ -259,7 +259,7 @@ if CLIENT then
 			local inflictor	= net.ReadString()
 			local attacker	= "#" .. net.ReadString()
 
-			GAMEMODE:AddDeathNotice( attacker, -1, inflictor, victim, -1 )
+			// GAMEMODE:AddDeathNotice( attacker, -1, inflictor, victim, -1 )
 
 		end
 		net.Receive( "ACF_NPCKilledNPC", RecvNPCKilledNPC )
